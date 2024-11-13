@@ -1,0 +1,6 @@
+<% if current_user %>
+  Oie, <%= current_user.username %>
+  <%= button_to "Sair", destroy_user_session_path, method: :delete, data: { turbo: false } %>
+<% else %>
+  <%= button_to "Sign in with Discord", user_discord_omniauth_authorize_path, method: :post, data: { turbo: false } %>
+<% end %>
